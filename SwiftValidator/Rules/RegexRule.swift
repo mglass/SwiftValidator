@@ -36,6 +36,7 @@ open class RegexRule : Rule {
      - returns: Boolean value. True if validation is successful; False if validation fails.
      */
     open func validate(_ value: String) -> Bool {
+		guard !value.isEmpty else { return true }
         let test = NSPredicate(format: "SELF MATCHES %@", self.REGEX)
         return test.evaluate(with: value)
     }
